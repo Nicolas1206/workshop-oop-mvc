@@ -1,4 +1,12 @@
 <?php
-declare(strict_types=1);
+include_once "inc/default.inc.php";
+require_once "vendor/autoload.php";
 
-echo 'It works !';
+use core\Router;
+
+$router = new Router();
+$router->route(parse_url(
+$_SERVER['REQUEST_URI'],
+PHP_URL_PATH
+    )
+);
